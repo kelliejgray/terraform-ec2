@@ -104,4 +104,4 @@ resource "aws_instance" "terraform_ec2" {
 
 output "instance_ips" {
   value = aws_instance.terraform_ec2.public_ip
-"main.tf" 106L, 2091B    
+    
