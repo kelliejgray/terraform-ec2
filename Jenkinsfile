@@ -2,12 +2,12 @@ pipeline {
     agent any
 	
 	parameters {
-	    string(name: 'enviroment', defaultValue: 'terraform', description: 'Woorkspace/enviroment fileto use for deployment')
+	    string(name: 'environment', defaultValue: 'terraform', description: 'Woorkspace/environment fileto use for deployment')
 		booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
            }
 	
 	
-	enviroment {
+	environment {
 	   AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
 	   AWS_SECRET_ACCESS_KEY = credentials('AWS_ SECRET_ACCESS_KEY')
 	   }
@@ -27,8 +27,8 @@ pipeline {
 	    stage('plan') {
 		    steps {
 			    sh 'pwd;cd terraform/aws-instance-first-script ; terraform init=false'
-				sh 'pwd;cd terraform/aws-instance-first-script ; terraform workspace new ${enviroment}'
-				sh 'pwd;cd terraform/aws-instance-first-script ; terraform workspace select ${enviroment}'
+				sh 'pwd;cd terraform/aws-instance-first-script ; terraform workspace new ${environment}'
+				sh 'pwd;cd terraform/aws-instance-first-script ; terraform workspace select ${environment}'
 				sh 'pwd;cd terraform/aws-instance-first-script ; terraform plan -input=false -out=tfplan'
 				sh 'pwd;cd terraform/aws-instance-first-script ; terraform show -no-color tfplan > tfplan.txt'
 			}
