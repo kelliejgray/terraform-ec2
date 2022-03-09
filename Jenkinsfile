@@ -44,7 +44,7 @@ pipeline {
 			    script {
 				    def plan = readFilie 'terraform/terraform-ec2/tfplan.txt'
 					imput message: "Do you want to apply the plan",
-					parameters: [text(name: 'plan', description: 'please review the paln', defaultValue: plan)]
+					parameters: [text(name: 'plan', description: 'please review the plan', defaultValue: plan)]
 				}
 			}
 		}
