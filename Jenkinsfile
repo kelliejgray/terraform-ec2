@@ -2,7 +2,7 @@ pipeline {
     agent any
 	
 	parameters {
-	    string(name: 'environment', defaultValue: 'terraform', description: 'Woorkspace/environment fileto use for deployment')
+	    string(name: 'environment', defaultValue: 'terraform', description: 'Workspace/environment fileto use for deployment')
 		booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
            }
 	
