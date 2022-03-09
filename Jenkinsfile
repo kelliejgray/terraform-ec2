@@ -3,7 +3,7 @@ pipeline {
 	
 	parameters {
 	    string(name: 'enviroment', defaultValue: 'terraform', description: 'Woorkspace/enviroment fileto use for deployment')
-		booleeanparam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
+		booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
 
 	}
 	
